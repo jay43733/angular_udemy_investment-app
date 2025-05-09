@@ -1,0 +1,13 @@
+<app-header></app-header>
+<app-user-input
+  [initial]="initial"
+  [annual]="annual"
+  [expected]="expected"
+  [duration]="duration"
+  (result)="calculateInvestmentResults($event)"
+></app-user-input>
+@if (annualData.length > 0) {
+<app-investment-results [data]="annualData"></app-investment-results>
+}@else {
+<p class="center">Please enter some values and press "Calculate"</p>
+}
