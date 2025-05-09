@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, computed, Input } from '@angular/core';
 import { AnnualData } from '../investment-results.model';
+import { investmentResultsService } from '../investment-results.service';
 
 @Component({
   selector: 'app-investment-results',
@@ -8,5 +9,7 @@ import { AnnualData } from '../investment-results.model';
   styleUrl: './investment-results.component.css',
 })
 export class InvestmentResultsComponent {
-  @Input() data!: AnnualData[];
+  constructor(private investmentResultsService: investmentResultsService) {}
+
+  data = computed(() => this.investmentResultsService.result());
 }

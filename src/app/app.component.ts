@@ -7,10 +7,4 @@ import { AnnualData } from './investment-results.model';
   standalone: false,
   templateUrl: './app.component.html',
 })
-export class AppComponent {
-  annualData = signal<AnnualData[]>([]);
-
-  calculateInvestmentResults(result: AnnualData[]) {
-    this.annualData.set(result);
-  }
-}
+export class AppComponent {}
