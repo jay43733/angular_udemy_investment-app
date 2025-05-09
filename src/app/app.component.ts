@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { HeaderComponent } from './header/header.component';
-import { AnnualData } from './app.model';
+import { Component, signal } from '@angular/core';
+
+import { AnnualData } from './investment-results.model';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +8,9 @@ import { AnnualData } from './app.model';
   templateUrl: './app.component.html',
 })
 export class AppComponent {
-  initial: number = 0;
-  annual: number = 0;
-  expected: number = 0;
-  duration: number = 0;
-  annualData: AnnualData[] = [];
+  annualData = signal<AnnualData[]>([]);
 
   calculateInvestmentResults(result: AnnualData[]) {
-    this.annualData = result;
+    this.annualData.set(result);
   }
 }

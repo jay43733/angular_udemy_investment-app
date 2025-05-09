@@ -1,22 +1,28 @@
+@if (data.length > 0) {
 <table>
   <thead>
     <tr>
-      <td>Year</td>
-      <td>Investment Value</td>
-      <td>Interest (Year)</td>
-      <td>Total Interest</td>
-      <td>Invested Capital</td>
+      <th>Year</th>
+      <th>Investment Value</th>
+      <th>Interest (Year)</th>
+      <th>Total Interest</th>
+      <th>Invested Capital</th>
     </tr>
   </thead>
   <tbody>
     @for (item of data; track $index) {
     <tr>
       <td>{{ item.year }}</td>
-      <td>{{ item.annualInvestment }}</td>
-      <td>{{ item.interest }}</td>
-      <td>{{ item.totalInterest }}</td>
-      <td>{{ item.totalAmountInvested }}</td>
+      <td>{{ item.valueEndOfYear | currency }}</td>
+      <td>{{ item.interest | currency }}</td>
+      <td>{{ item.totalInterest | currency }}</td>
+      <td>{{ item.totalAmountInvested | currency }}</td>
     </tr>
     }
   </tbody>
 </table>
+
+}@else {
+<p class="center">Please enter some values and press "Calculate"</p>
+
+}

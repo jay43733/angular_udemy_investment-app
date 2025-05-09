@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { AnnualData } from '../app.model';
+import { AnnualData } from '../investment-results.model';
 
 @Component({
   selector: 'app-investment-results',
